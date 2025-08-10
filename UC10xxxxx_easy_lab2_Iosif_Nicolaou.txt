@@ -1,0 +1,36 @@
+Name: Iosif Nicolaou
+University ID: UC10xxxxx
+
+-----Cycle 150-----
+Registers:
+98	0	0	0	0	0	0	0	0	2	2	4	2	8	fff	1001	0	0	0	0	0	0	0	0	0	0	0	0	0	10008000	7ffffffc	0	0	
+
+Monitors:
+98	94	-	srl $t7, $t4, 1	srl	$t4	$t7	1	-	$t4	-	-	-	8	-	8	-	-	-	-	-	0	0	0	0	0	0	0	00	00	11	0	0	0	
+
+Memory State: 
+
+
+-----Cycle 210-----
+Registers:
+d4	0	0	0	0	0	0	0	0	2	2	4	2	5	1	1001	4	4	fffff000	fff	0	0	0	0	0	0	0	0	0	10008000	7ffffffc	0	0	
+
+Monitors : 
+d4	d0	-	j loop	j	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	loop	0	1	0	0	0	0	0	10	00	11	0	1	0	
+
+Memory State: 
+4
+
+-----Final State-----
+Registers:
+fc	0	0	0	0	0	0	0	0	2	2	4	2	5	5	1001	4	4	fffff000	fff	0	0	180000	180000	0	0	0	0	0	10008000	7ffffffc	0	d8	
+
+Memory State: 
+4
+
+Total Cycles: 
+275
+
+User Time:
+89116200ns
+

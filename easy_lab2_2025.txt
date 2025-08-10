@@ -1,0 +1,83 @@
+.data
+.text
+
+# cycles 150 and 210 and final state
+
+main:
+	
+	and $zero, $zero, $zero
+	and $at, $zero, $zero
+	and $v0, $zero, $zero
+	and $v1, $zero, $zero
+	and $a0, $zero, $zero
+	and $a1, $zero, $zero
+	and $a2, $zero, $zero
+	and $a3, $zero, $zero
+	and $t0, $zero, $zero
+	and $t1, $zero, $zero
+	and $t2, $zero, $zero
+	and $t3, $zero, $zero
+	and $t4, $zero, $zero
+	and $t5, $zero, $zero
+	and $t6, $zero, $zero
+	and $t7, $zero, $zero
+	and $s0, $zero, $zero
+	and $s1, $zero, $zero
+	and $s2, $zero, $zero
+	and $s3, $zero, $zero
+	and $s4, $zero, $zero
+	and $s5, $zero, $zero
+	and $s6, $zero, $zero
+	and $s7, $zero, $zero
+	and $t8, $zero, $zero
+	and $t9, $zero, $zero
+	and $k0, $zero, $zero
+	and $k1, $zero, $zero
+	and $fp, $zero, $zero
+	and $ra, $zero, $zero
+	
+	ori $t0, $t0, 0x2
+	addi $t1, $t1, 0x2
+	add $t2, $t1, $t0
+	addiu $t5, $t4, 0xFFF
+	addu $t6, $t5, $t0
+	andi $t3, $t1, 3
+	sll $t4, $t1, 2
+	srl $t7, $t4, 1
+	sw $t7, 0($gp)
+	lw $s0, 0($gp)
+	bne $t7, $s0, mistake
+	
+ret:
+	nor $s1, $t4, $t5
+	or $s2, $t4, $t5
+	slt $s3, $t0, $t1
+	sltu $s4, $t0, $t1
+	slti $s5, $t0, 2
+	sltiu $s6, $t0, 2
+	sub $t5, $t1, $t0
+	subu $t4, $t1, $t0
+	addi $t4, $t4, 5
+	
+loop:
+	beq $t5, $t4, new
+	addi $t5, $t5, 1
+	j loop
+	
+new:
+	jal func
+	lui $s5, 24
+	beq $s5, $s6, end
+	addi $t9, $t9, -1
+	j end
+
+mistake:
+	addi $s7, $s7, -1
+	j ret
+	
+func:
+	lui $s6, 24
+	jr $ra
+	
+end:	
+	sll $zero, $zero, 0			#THIS IS MANDATORY
